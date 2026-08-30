@@ -1,0 +1,9 @@
+this folder contains 4 files:
+PRIME.PY:
+this file lets you know if your input is composite or prime.
+PRIME2.PY:
+this program lets you know the amount of prime numbers you input.
+PRIME3.PY:
+this program lets you know which numbers are prime and which are composite till the input value you give.
+PRIMETOGETHER.PY:
+this contains all 3 files merged into one with 3 options given at start to run either one at a time.
