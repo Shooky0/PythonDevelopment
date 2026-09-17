@@ -1,0 +1,30 @@
+{
+    "tasks": [
+        {
+            "task_name": "Submit Q3 Financial Report",
+            "category": "Finance",
+            "due_date": "12-02-2027",
+            "period_days": 120
+        },
+        {
+            "task_name": "Renew Website Domain",
+            "category": "IT Operations",
+            "due_date": "31-12-2026",
+            "period_days": 120
+        },
+        {
+            "task_name": "Team Performance Reviews",
+            "category": "HR",
+            "due_date": "18-12-2026",
+            "priority": "High",
+            "status": "Not Started"
+        },
+        {
+            "task_name": "Update Marketing Copy",
+            "category": "Marketing",
+            "due_date": "30-09-2026",
+            "priority": "Low",
+            "status": "Completed"
+        }
+    ]
+}
