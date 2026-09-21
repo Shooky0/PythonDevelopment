@@ -19,31 +19,26 @@ while True:
 if(user_input==1):
     while True:
         try:
-        # Try to convert the input to an integer
             num1 = int(input("Please enter a number: "))
-        # If successful, break out of the loop
             break
         except ValueError:
-        # If it fails (e.g., they typed "hello" or "3.14"), print an error and loop again
             print("Invalid input. Please enter a whole number.")
 
-    num2=num1//2
-    start=2
-    for i in range(num1):
-        if(num1==num2*start):
-            print(num2,"X",start)
-            print("Hence,",num1,"is a composite,not a prime")
-            break
-        elif(start==num2):
-            if(num1!=num2*start):
-                print(num1,"is a prime number")
-                break
-        else:
-            print(num2,"X",start)
-            print("Hence,",num1,"is a composite,not a prime")
-            break
+    factor_pairs = []
+    if num1 < 2:
+        print(num1, "is neither prime nor composite.")
     else:
-        start=start+1
+        for factor in range(2, int(num1 ** 0.5) + 1):
+            if num1 % factor == 0:
+                factor_pairs.append((factor, num1 // factor))
+
+        if not factor_pairs:
+            print(num1, "is a prime number")
+        else:
+            print(num1, "is a composite number")
+            print("Factor pairs:")
+            for a, b in factor_pairs:
+                print(f"{a} X {b}")
 
 if(user_input==3):
     while True:
