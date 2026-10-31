@@ -22,50 +22,55 @@ def is_prime(value):
     return True
 
 
-print("PYTHON PRIME NUMBER FINDER")
-print("Available options:")
-print("1.Find whether 'x' is prime or composite")
-print("2.Find prime and composite numbers till 'x'")
-print("3.Find 'x' prime numbers")
+def main():
+    print("PYTHON PRIME NUMBER FINDER")
+    print("Available options:")
+    print("1.Find whether 'x' is prime or composite")
+    print("2.Find prime and composite numbers till 'x'")
+    print("3.Find 'x' prime numbers")
 
-while True:
-    try:
-        user_input = get_valid_int("Please enter the specified program to run: ")
-        if 1 <= user_input <= 3:
-            break
-        print("The input must be from given inputs. Retrying...")
-    except Exception:
-        print("Input must be a valid number. Retrying...")
+    while True:
+        try:
+            user_input = get_valid_int("Please enter the specified program to run: ")
+            if 1 <= user_input <= 3:
+                break
+            print("The input must be from given inputs. Retrying...")
+        except Exception:
+            print("Input must be a valid number. Retrying...")
 
-if user_input == 1:
-    num = get_valid_int("Please enter a number: ")
-    if num < 2:
-        print(num, "is neither prime nor composite.")
-    elif is_prime(num):
-        print(num, "is a prime number")
-    else:
-        print(num, "is a composite number")
-        print("Factor pairs:")
-        factor = 2
-        while factor * factor <= num:
-            if num % factor == 0:
-                print(f"{factor} X {num // factor}")
-            factor += 1
-
-elif user_input == 2:
-    limit = get_valid_int("Please enter the maximum number to check: ")
-    for candidate in range(2, limit + 1):
-        if is_prime(candidate):
-            print(f"{candidate} -> prime number")
+    if user_input == 1:
+        num = get_valid_int("Please enter a number: ")
+        if num < 2:
+            print(num, "is neither prime nor composite.")
+        elif is_prime(num):
+            print(num, "is a prime number")
         else:
-            print(f"{candidate} -> composite number")
+            print(num, "is a composite number")
+            print("Factor pairs:")
+            factor = 2
+            while factor * factor <= num:
+                if num % factor == 0:
+                    print(f"{factor} X {num // factor}")
+                factor += 1
 
-elif user_input == 3:
-    total = get_valid_int("Please enter how many prime numbers you would like to know: ")
-    count = 0
-    candidate = 2
-    while count < total:
-        if is_prime(candidate):
-            print(f"{candidate} -> prime number")
-            count += 1
-        candidate += 1
+    elif user_input == 2:
+        limit = get_valid_int("Please enter the maximum number to check: ")
+        for candidate in range(2, limit + 1):
+            if is_prime(candidate):
+                print(f"{candidate} -> prime number")
+            else:
+                print(f"{candidate} -> composite number")
+
+    elif user_input == 3:
+        total = get_valid_int("Please enter how many prime numbers you would like to know: ")
+        count = 0
+        candidate = 2
+        while count < total:
+            if is_prime(candidate):
+                print(f"{candidate} -> prime number")
+                count += 1
+            candidate += 1
+
+
+if __name__ == "__main__":
+    main()
