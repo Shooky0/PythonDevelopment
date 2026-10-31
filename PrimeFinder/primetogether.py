@@ -1,98 +1,71 @@
-
-
-while True:
-    try:
-        print("PYTHON PRIME NUMBER FINDER")
-        print("Available options:")
-        print("1.Find whether 'x' is prime or composite")
-        print("2.Find prime and composite numbers till 'x'")
-        print("3.Find 'x' prime numbers")
-        user_input=int(input("Please enter the specified program to run: "))
-        if 1 <= user_input <= 3:
-            break
-        else:
-            print("The input must be from given inputs. Retrying...")
-
-    except Exception:
-        print("Input must be a valid number. Retrying...")
-
-if(user_input==1):
+def get_valid_int(prompt):
     while True:
         try:
-            num1 = int(input("Please enter a number: "))
-            break
+            return int(input(prompt))
         except ValueError:
             print("Invalid input. Please enter a whole number.")
 
-    factor_pairs = []
-    if num1 < 2:
-        print(num1, "is neither prime nor composite.")
+
+def is_prime(value):
+    if value < 2:
+        return False
+    if value in (2, 3):
+        return True
+    if value % 2 == 0:
+        return False
+
+    divisor = 3
+    while divisor * divisor <= value:
+        if value % divisor == 0:
+            return False
+        divisor += 2
+    return True
+
+
+print("PYTHON PRIME NUMBER FINDER")
+print("Available options:")
+print("1.Find whether 'x' is prime or composite")
+print("2.Find prime and composite numbers till 'x'")
+print("3.Find 'x' prime numbers")
+
+while True:
+    try:
+        user_input = get_valid_int("Please enter the specified program to run: ")
+        if 1 <= user_input <= 3:
+            break
+        print("The input must be from given inputs. Retrying...")
+    except Exception:
+        print("Input must be a valid number. Retrying...")
+
+if user_input == 1:
+    num = get_valid_int("Please enter a number: ")
+    if num < 2:
+        print(num, "is neither prime nor composite.")
+    elif is_prime(num):
+        print(num, "is a prime number")
     else:
-        for factor in range(2, int(num1 ** 0.5) + 1):
-            if num1 % factor == 0:
-                factor_pairs.append((factor, num1 // factor))
+        print(num, "is a composite number")
+        print("Factor pairs:")
+        factor = 2
+        while factor * factor <= num:
+            if num % factor == 0:
+                print(f"{factor} X {num // factor}")
+            factor += 1
 
-        if not factor_pairs:
-            print(num1, "is a prime number")
+elif user_input == 2:
+    limit = get_valid_int("Please enter the maximum number to check: ")
+    for candidate in range(2, limit + 1):
+        if is_prime(candidate):
+            print(f"{candidate} -> prime number")
         else:
-            print(num1, "is a composite number")
-            print("Factor pairs:")
-            for a, b in factor_pairs:
-                print(f"{a} X {b}")
+            print(f"{candidate} -> composite number")
 
-if(user_input==3):
-    while True:
-            try:
-            # Try to convert the input to an integer
-                num0 = int(input("Please enter the amount of numbers you would like to know: "))
-            # If successful, break out of the loop
-                break
-            except ValueError:
-            # If it fails (e.g., they typed "hello" or "3.14"), print an error and loop again
-                print("Invalid input. Please enter a whole number.Retrying...")
-    num1=2
-    start=2
-    t=0
-    while(count<=num0):
-        num2=round(num1//2)
-    
-        if(num1 % start == 0): 
-   
-            num1 = num1 + 1
-            start = 2
-        
-        elif(start>num2):
-            print(num1, "->prime number")
-            num1 = num1 + 1
-            count=count+1
-            
-        else:
-            start=start+1
-if(user_input==2):
-    while True:
-               try:
-               # Try to convert the input to an integer
-                   num0 = int(input("Please enter the amount of prime numbers you would like to know: "))
-               # If successful, break out of the loop
-                   break
-               except ValueError:
-               # If it fails (e.g., they typed "hello" or "3.14"), print an error and loop again
-                   print("Invalid input. Please enter a whole number.Retrying...")
-    num1=2
-    start=2
-    while(num1<=num0):
-        num2=round(num1//2)
-    
-        if(num1 % start == 0): 
-            print(num1,"->composite,",num1,"=",start,"X",num1//start)
-            num1 = num1 + 1
-            start = 2
-        
-        elif(start>num2):
-            print(num1, "->prime number")
-            num1 = num1 + 1
-        
-            
-        else:
-            start=start+1
-
+elif user_input == 3:
+    total = get_valid_int("Please enter how many prime numbers you would like to know: ")
+    count = 0
+    candidate = 2
+    while count < total:
+        if is_prime(candidate):
+            print(f"{candidate} -> prime number")
+            count += 1
+        candidate += 1
