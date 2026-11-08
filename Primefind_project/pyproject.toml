@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Primefind"  # Name must be unique if publishing to PyPI
+version = "0.1.0"
+authors = [
+  { name="Bhargav Thakur", email="bhargavt12@proton.me" },
+]
+description = "Prime checker."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]

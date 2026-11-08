@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: Primefind
+Version: 0.1.0
+Summary: Prime checker.
+Author-email: Bhargav Thakur <bhargavt12@proton.me>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Primefind
+
+Primefind is a small utility project focused on identifying, generating, and working with prime numbers. It is designed to be simple, efficient, and easy to extend for educational, testing, or algorithm-focused use cases.
+
+## Overview
+
+Prime numbers are numbers greater than 1 that have no divisors other than 1 and themselves. This project helps automate that process by providing a clean way to:
+
+- check whether a number is prime
+- generate primes within a range
+- analyze prime-related calculations
+- serve as a foundation for further number theory experiments
+
+## Features
+
+- fast prime checking logic
+- range-based prime generation
+- simple and readable implementation
+- easy to adapt for console, web, or library usage
+- suitable for learning and experimentation
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the required runtime/tools installed for the project language and environment you are using.
+
+### Installation
+tbh even idk how to install this. ask chatgpt.
+## Usage
+
+Import the functions from the `Primefind` package and call the one that matches
+what you want to check:
+
+```python
+from Primefind import areprimes, isprime, primes_till_that_num, that_many_primes
+
+print(isprime(29))                   
+print(areprimes(2, 3, 5, 7))           
+print(areprimes(2, 4, 5))              
+print(primes_till_that_num(20))        
+print(that_many_primes(8))             
+```
+
+`primes_till_that_num(n)` returns primes less than `n`, while
+`that_many_primes(n)` returns the first `n` primes.
+
+## Project Structure
+
+```text
+Primefind_project/
+├── README.md
+├── pyproject.toml
+├── Primefind
+    ├── __init__.py
+    ├── Primefind.py
+```

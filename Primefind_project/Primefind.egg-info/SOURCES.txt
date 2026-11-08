@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+Primefind/Primefind.py
+Primefind/__init__.py
+Primefind.egg-info/PKG-INFO
+Primefind.egg-info/SOURCES.txt
+Primefind.egg-info/dependency_links.txt
+Primefind.egg-info/top_level.txt
